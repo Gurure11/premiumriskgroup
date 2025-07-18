@@ -3,90 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premier Risk Insurance</title>
+    <title>Premier Risk Group - Comprehensive Insurance Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Basic CSS styling */
+        :root {
+            --primary-color: #0056b3; /* Darker blue for a premium feel */
+            --secondary-color: #FFD700; /* Gold from the logo */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --dark-bg: #2c3e50; /* Darker background for footer/header if needed */
+            --gray-border: #ddd;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
         }
+
         header {
-            background-color: #007bff;
+            background-color: var(--dark-bg);
             color: white;
-            padding: 10px 20px;
+            padding: 15px 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
+        .header-logo {
+            max-width: 200px; /* Adjust as needed */
+            height: auto;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out; /* Simple animation */
+        }
+
+        header p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #ccc;
+        }
+
         nav {
-            background-color: gold;
-            padding: 10px;
+            background-color: var(--secondary-color);
+            padding: 10px 0;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
         nav a {
             text-decoration: none;
-            color: #333;
-            padding: 5px 15px;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
         }
+
         nav a:hover {
-            background-color: #ddd;
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px); /* Subtle hover effect */
         }
-        .container {
-            margin: 20px auto;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        footer {
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 450px; /* Adjust height as needed */
+            overflow: hidden;
             background-color: #333;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            animation: zoomIn 5s infinite alternate; /* Subtle zoom effect */
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: white;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 30px;
+            border-radius: 8px;
+            animation: fadeInUp 1s ease-out;
         }
-        #a{
-            width: 300px;
+
+        .hero-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
-        #cont{
+
+        .hero-content p {
+            font-size: 1.3em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 960px;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.8s ease-out; /* Section fade-in animation */
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        section p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25d366; /* WhatsApp green */
             color: white;
-            margin-right: 30px;
-            margin-left: 20px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
         }
-        #about{
+
+        .whatsapp-link:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section-image:hover {
+            transform: scale(1.02); /* Slight zoom on hover */
+        }
+
+        footer {
+            background-color: var(--dark-bg);
             color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
-        #cont:hover{
-            color: green;
-            transition: 0.19s;
-            opacity: 0.7;
-            cursor: pointer;
+
+        footer p {
+            margin: 0;
+            font-size: 0.95em;
         }
-        #about:hover{
-            
-            color: green;
-            transition: 0.19s;
-            opacity: 0.7;
-            cursor: pointer;
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
         }
-        #whatsapp{
-            width: 30px;
-            border-radius: 10px;
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
         }
-        #whatsapp:hover{
-            cursor: pointer;
-            transition: 0.18s;
-            opacity: 0.6;
-            
-            
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .hero-section {
+                height: 300px;
+            }
+
+            .hero-content h2 {
+                font-size: 2em;
+            }
+
+            .hero-content p {
+                font-size: 1em;
+            }
         }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+
+            .header-logo {
+                max-width: 150px;
+            }
+
+            header p {
+                font-size: 0.9em;
+            }
+
+            nav a {
+                font-size: 0.9em;
+                padding: 8px 10px;
+            }
+
+            .hero-section {
+                height: 250px;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5em;
+            }
+
+            .hero-content p {
+                font-size: 0.9em;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.03);
+            }
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>Premier Risk Group</h1>
+        <img src="images/premier_risk_group_logo.jpg" alt="Premier Risk Group Logo" class="header-logo">
         <p>Comprehensive insurance solutions in Harare and nationwide</p>
     </header>
+
     <nav>
         <a href="#life">Life Insurance</a>
         <a href="#car">Car Insurance</a>
@@ -96,89 +339,109 @@
         <a href="#will">Will and Estate Insurance</a>
         <a href="#health">Health Insurance</a>
     </nav>
+
+    <div class="hero-section">
+        <div class="hero-slide active" style="background-image: url('images/slide1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/slide2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/slide3.jpg');"></div>
+        <div class="hero-content">
+            <h2>Your Future, Our Priority</h2>
+            <p>Protecting what matters most with trusted insurance solutions.</p>
+        </div>
+    </div>
+
     <div class="container">
         <section id="life">
             <h2>Life Insurance</h2>
-            <p>Learn about our comprehensive life cover options.</p>
+            <p>Learn about our comprehensive life cover options, designed to provide financial security for your loved ones when they need it most. We offer various plans tailored to your specific needs, ensuring peace of mind for you and your family.</p>
         </section>
+
         <section id="car">
             <h2>Car Insurance</h2>
-            <p>Discover our car insurance plans tailored to your needs.<br>
-                <a href="https://api.whatsapp.com/send?phone=%2B263774051654&data=ARArWsDNitpWZheDda1cy78LTY1BSsjPn6c5_YJ492M1sTHf3qNvD9NDIKQxi_jQQN-PvMdjncOxTtlHWB-y1_5s_Igx-9PST05H4AMjusDB4CCMF_-stHU1mlAIxp1cleMGK6mV5_FgCKuf0aYLcvM4Vw&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR35dsDp1hRv3XR7CKfl_JQFM9sFJfqnGRnaL3AUPwHv1xIcT_6wOcCfSX0"><img id="whatsapp" src="images/whats.jpeg">Whatsapp<a/><br><br>
-           
-
-Home  Products and Services  Insure what matters  Your car and home insurance
-
-
-Our car & home insurance specialists make the process simple for you
-We will give you a tailored quote to suit your needs
-We do the shopping for you, giving you more options to choose from
-Let us call you back, saving you both time and money!
-
- 
-
- 
-
-CALL ME BACK
-Some of the benefits
-Superior service
-Rely on our dedicated insurance staff for fast and friendly, professional help
-Emergency help
-Call us at any time for help during emergencies at home or on the road
-UCount Rewards
-As a member of UCount Rewards, 50 UCount tiering points are allocated each month for each qualifying insurance policy
-Personalised premiums
-Pay for cover that’s based on your personal risk profile
-What is covered
-What it costs
-How to claim
-Comprehensive cover
-Loss or damage caused by theft, fire or storms
-
-Limited cover
-Pay less every month for the insurance you’re happy with
-
-Exclusions
-Exclusions depend on the cover you choose</p>
+            <p>Discover our car insurance plans tailored to your needs. We offer flexible options, from comprehensive to third-party cover, ensuring you're protected on the road.</p>
+            <p>Our car & home insurance specialists make the process simple for you. We will give you a tailored quote to suit your needs and do the shopping for you, giving you more options to choose from. Let us call you back, saving you both time and money!</p>
+            <a href="https://api.whatsapp.com/send?phone=%2B263774051654&data=ARArWsDNitpWZheDda1cy78LTY1BSsjPn6c5_YJ492M1sTHf3qNvD9NDIKQxi_jQQN-PvMdjncOxTtlHWB-y1_5s_Igx-9P9ST05H4AMjusDB4CCMF_-stHU1mlAIxp1cleMGK6mV5_FgCKuf0aYLcvM4Vw&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR35dsDp1hRv3XR7CKfl_JQFM9sFJfqnGRnaL3AUPwHv1xIcT_6wOcCfSX0" class="whatsapp-link">
+                <img class="whatsapp-icon" src="images/whatsapp_icon.png" alt="WhatsApp Icon">Message us on WhatsApp
+            </a>
+            <h3>Some of the benefits:</h3>
+            <ul>
+                <li><strong>Superior service:</strong> Rely on our dedicated insurance staff for fast and friendly, professional help.</li>
+                <li><strong>Emergency help:</strong> Call us at any time for help during emergencies at home or on the road.</li>
+                <li><strong>UCount Rewards:</strong> As a member of UCount Rewards, 50 UCount tiering points are allocated each month for each qualifying insurance policy.</li>
+                <li><strong>Personalised premiums:</strong> Pay for cover that’s based on your personal risk profile.</li>
+            </ul>
+            <h3>What is covered:</h3>
+            <ul>
+                <li><strong>Comprehensive cover:</strong> Loss or damage caused by theft, fire or storms.</li>
+                <li><strong>Limited cover:</strong> Pay less every month for the insurance you’re happy with.</li>
+            </ul>
+            <p>Exclusions depend on the cover you choose.</p>
         </section>
+
         <section id="house">
             <h2>House Insurance</h2>
-            <p>Protect your home with our reliable house insurance policies. Cover your home against unexpected fires, damage due to bad weather thus wear and tear. Let us do the work for you be it needing new painting, new roof or home improvements, we got you covered.<br>
-                <br>
-                <a href="images/a.jpeg"><img id="a" src="images/a.jpeg"></a><br>
-            </p>
+            <p>Protect your home with our reliable house insurance policies. Cover your home against unexpected fires, damage due to bad weather, and general wear and tear. Let us do the work for you, whether you need new painting, a new roof, or home improvements – we’ve got you covered.</p>
+            <img class="section-image" src="images/a.jpeg" alt="House Insurance">
         </section>
+
         <section id="work">
             <h2>Work Insurance</h2>
-            <p>Insurance solutions for your business and work-related needs.
-                <br>
-                
-            </p>
+            <p>Insurance solutions for your business and work-related needs. From protecting your assets to safeguarding your employees, our tailored business insurance plans ensure your operations run smoothly and securely.</p>
         </section>
+
         <section id="travel">
             <h2>Travel Insurance</h2>
-            <p>Stay covered with our travel insurance options.<br><br>
-                  <a href="images/d.jpeg"><img id="a" src="images/d.jpeg"></a><br>
-                  We make sure you and your family members are covered on your travel with our travel insurance incase of an unfortunate event.<br>
-            </p>
+            <p>Stay covered with our travel insurance options. We make sure you and your family members are covered on your travels in case of an unfortunate event, providing peace of mind wherever your adventures take you.</p>
+            <img class="section-image" src="images/d.jpeg" alt="Travel Insurance">
         </section>
+
         <section id="will">
             <h2>Will and Estate Insurance</h2>
-            <p>Plan for the future with our will and estate insurance services.<br>
-                <br>
-                  <a href="images/b.jpeg"><img id="a" src="images/b.jpeg"></a>
-            </p>
+            <p>Plan for the future with our will and estate insurance services. Ensure your legacy is protected and your wishes are honored, providing financial stability for your heirs and dependents.</p>
+            <img class="section-image" src="images/b.jpeg" alt="Will and Estate Insurance">
         </section>
+
         <section id="health">
             <h2>Health Insurance</h2>
-            <p>Protect your health with our comprehensive health insurance plans.<br>
-                <br>
-                  <a href="images/c.jpeg"><img id="a" src="images/c.jpeg"></a><br><br>
-            </p>
+            <p>Protect your health with our comprehensive health insurance plans. Access to quality healthcare is vital, and our plans offer extensive coverage for medical expenses, ensuring you receive the best care when you need it.</p>
+            <img class="section-image" src="images/c.jpeg" alt="Health Insurance">
         </section>
     </div>
+
     <footer>
-        <p>&copy; 2024 Premier Risk Group. Harare, Zimbabwe. <a id="cont" href="contacts.html">Contacts</a>  <a id="about" href="details.html">About Us</a></p>
+        <p>&copy; 2024 Premier Risk Group. Harare, Zimbabwe.</p>
+        <p>
+            <a href="contacts.html">Contacts</a> |
+            <a href="details.html">About Us</a>
+        </p>
+        <p><strong>Harare Office:</strong> 5 Peeble Road, Eastlea, Harare</p>
+        <p><strong>Mutare Office:</strong> 9 Aerodome Road, Main Street, Mutare</p>
     </footer>
+
+    <script>
+        // Hero Section Slider
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                slide.style.zIndex = 1; // Reset z-index
+            });
+            slides[index].classList.add('active');
+            slides[index].style.zIndex = 2; // Bring active slide to front
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Initial display
+        showSlide(currentSlide);
+    </script>
 </body>
 </html>
