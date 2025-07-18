@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier Risk Group - Comprehensive Insurance Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary-color: #0056b3; /* Darker blue for a premium feel */
@@ -222,6 +223,24 @@
             text-decoration: underline;
         }
 
+        .social-links {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white; /* Icons should be white in dark footer */
+            font-size: 1.8em; /* Adjust size as needed */
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.2s ease;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color); /* Gold on hover */
+            transform: translateY(-3px);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             nav a {
@@ -416,6 +435,12 @@
         </p>
         <p><strong>Harare Office:</strong> 5 Peeble Road, Eastlea, Harare</p>
         <p><strong>Mutare Office:</strong> 9 Aerodome Road, Main Street, Mutare</p>
+        <div class="social-links">
+            <a href="https://facebook.com/your-premier-risk-group" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/your-premier-risk-group" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://linkedin.com/company/your-premier-risk-group" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/your-premier-risk-group" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
     <script>
