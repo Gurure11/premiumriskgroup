@@ -62,6 +62,17 @@
             z-index: 1000;
         }
 
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
         nav a {
             text-decoration: none;
             color: var(--primary-color);
@@ -69,14 +80,46 @@
             margin: 0 5px;
             font-weight: 600;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
+            display: block;
         }
 
-        nav a:hover {
+        nav ul li a:hover {
             background-color: var(--primary-color);
             color: white;
             transform: translateY(-3px); /* Subtle hover effect */
         }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: var(--primary-color);
+            transform: none; /* Reset transform for dropdown items */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
 
         .hero-section {
             position: relative;
@@ -244,9 +287,18 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav a {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
                 display: block;
-                margin: 5px 0;
+                text-align: center;
+            }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #e0e0e0;
             }
 
             .hero-section {
@@ -351,13 +403,59 @@
     </header>
 
     <nav>
-        <a href="#life">Life Insurance</a>
-        <a href="#car">Car Insurance</a>
-        <a href="#house">House Insurance</a>
-        <a href="#work">Work Insurance</a>
-        <a href="#travel">Travel Insurance</a>
-        <a href="#will">Will and Estate Insurance</a>
-        <a href="#health">Health Insurance</a>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li class="dropdown">
+                <a href="#services" class="dropbtn">Our Services <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#construction"><b>Construction Insurance</b></a>
+                    <a href="#construction">- Bonds and Guarantees</a>
+                    <a href="#construction">- Bank Guarantees</a>
+                    <a href="#construction">- Contractors All Risks</a>
+                    <a href="#construction">- Related Liabilities</a>
+
+                    <a href="#transport"><b>Transport Insurance</b></a>
+                    <a href="#transport">- Motor Fleets</a>
+                    <a href="#transport">- Specialised Vehicles</a>
+                    <a href="#transport">- Passenger Vehicles</a>
+                    <a href="#transport">- Goods and Load Carrying</a>
+                    <a href="#transport">- Locomotives</a>
+                    <a href="#transport">- Air Travel</a>
+                    <a href="#transport">- Marine/Ship and Water Travel</a>
+
+                    <a href="#engineering"><b>Engineering and Mining</b></a>
+                    <a href="#engineering">- Assets All Risks</a>
+                    <a href="#engineering">- Machinery Breakdown</a>
+                    <a href="#engineering">- Loss of Profits</a>
+                    <a href="#engineering">- Plant All Risks</a>
+                    <a href="#engineering">- Personal Accident</a>
+
+                    <a href="#business"><b>Business Insurance</b></a>
+                    <a href="#business">- Computers and Electronic Equipment</a>
+                    <a href="#business">- Office Contents</a>
+                    <a href="#business">- Money and Bullion Insurance</a>
+                    <a href="#business">- Fraud Insurance (Fidelity Guarantee)</a>
+                    <a href="#business">- Buildings</a>
+                    <a href="#business">- Credit Insurance</a>
+                    <a href="#business">- Bonded Warehouses and Other Bonds</a>
+
+                    <a href="#farming"><b>Farming and Agriculture</b></a>
+                    <a href="#farming">- Crops Insurance</a>
+                    <a href="#farming">- Farm Animals</a>
+                    <a href="#farming">- Farm Equipment and Vehicles</a>
+                    <a href="#farming">- Employees Cover</a>
+
+                    <a href="#personal"><b>Personal Insurances</b></a>
+                    <a href="#personal">- Buildings and Contents</a>
+                    <a href="#personal">- Personal All Risks</a>
+                    <a href="#personal">- Travel Insurance</a>
+                    <a href="#personal">- Medical Aid</a>
+                    <a href="#personal">- Funeral Insurance</a>
+                </div>
+            </li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <div class="hero-section">
@@ -371,65 +469,31 @@
     </div>
 
     <div class="container">
-        <section id="life">
-            <h2>Life Insurance</h2>
-            <p>Learn about our comprehensive life cover options, designed to provide financial security for your loved ones when they need it most. We offer various plans tailored to your specific needs, ensuring peace of mind for you and your family.</p>
-        </section>
-
-        <section id="car">
-            <h2>Car Insurance</h2>
-            <p>Discover our car insurance plans tailored to your needs. We offer flexible options, from comprehensive to third-party cover, ensuring you're protected on the road.</p>
-            <p>Our car & home insurance specialists make the process simple for you. We will give you a tailored quote to suit your needs and do the shopping for you, giving you more options to choose from. Let us call you back, saving you both time and money!</p>
-            <a href="https://api.whatsapp.com/send?phone=%2B263774051654&data=ARArWsDNitpWZheDda1cy78LTY1BSsjPn6c5_YJ492M1sTHf3qNvD9NDIKQxi_jQQN-PvMdjncOxTtlHWB-y1_5s_Igx-9P9ST05H4AMjusDB4CCMF_-stHU1mlAIxp1cleMGK6mV5_FgCKuf0aYLcvM4Vw&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR35dsDp1hRv3XR7CKfl_JQFM9sFJfqnGRnaL3AUPwHv1xIcT_6wOcCfSX0" class="whatsapp-link">
-                <img class="whatsapp-icon" src="images/whats.jpeg" alt="WhatsApp Icon">Message us on WhatsApp
+        <section id="services">
+            <h2>Our Comprehensive Insurance Services</h2>
+            <p>At Premier Risk Group, we offer a wide array of specialized insurance products to cover every aspect of your personal and professional life. Our expert team is dedicated to providing tailored solutions to meet your unique needs. Explore our services through the menu above to find the perfect coverage for you.</p>
+            <p>From robust <strong>Construction</strong> and <strong>Engineering</strong> policies to comprehensive <strong>Business</strong> and <strong>Transport</strong> insurance, we ensure your commercial ventures are protected. We also provide specialized coverage for <strong>Farming and Agriculture</strong>, safeguarding your livelihood against unforeseen events. For your personal needs, we offer a range of insurances including <strong>Health, Travel, and Home</strong> protection, giving you and your family peace of mind.</p>
+             <a href="https://api.whatsapp.com/send?phone=%2B263774051654&data=ARArWsDNitpWZheDda1cy78LTY1BSsjPn6c5_YJ492M1sTHf3qNvD9NDIKQxi_jQQN-PvMdjncOxTtlHWB-y1_5s_Igx-9P9ST05H4AMjusDB4CCMF_-stHU1mlAIxp1cleMGK6mV5_FgCKuf0aYLcvM4Vw&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR35dsDp1hRv3XR7CKfl_JQFM9sFJfqnGRnaL3AUPwHv1xIcT_6wOcCfSX0" class="whatsapp-link">
+                <img class="whatsapp-icon" src="images/whats.jpeg" alt="WhatsApp Icon">Message us on WhatsApp for a Quote
             </a>
-            <h3>Some of the benefits:</h3>
-            <ul>
-                <li><strong>Superior service:</strong> Rely on our dedicated insurance staff for fast and friendly, professional help.</li>
-                <li><strong>Emergency help:</strong> Call us at any time for help during emergencies at home or on the road.</li>
-                <li><strong>UCount Rewards:</strong> As a member of UCount Rewards, 50 UCount tiering points are allocated each month for each qualifying insurance policy.</li>
-                <li><strong>Personalised premiums:</strong> Pay for cover that’s based on your personal risk profile.</li>
-            </ul>
-            <h3>What is covered:</h3>
-            <ul>
-                <li><strong>Comprehensive cover:</strong> Loss or damage caused by theft, fire or storms.</li>
-                <li><strong>Limited cover:</strong> Pay less every month for the insurance you’re happy with.</li>
-            </ul>
-            <p>Exclusions depend on the cover you choose.</p>
         </section>
 
-        <section id="house">
-            <h2>House Insurance</h2>
-            <p>Protect your home with our reliable house insurance policies. Cover your home against unexpected fires, damage due to bad weather, and general wear and tear. Let us do the work for you, whether you need new painting, a new roof, or home improvements – we’ve got you covered.</p>
-            <img class="section-image" src="images/a.jpeg" alt="House Insurance">
+        <section id="about">
+            <h2>About Premier Risk Group</h2>
+            <p>Learn about our mission to provide the most reliable and comprehensive insurance solutions in Zimbabwe. Our team of experienced professionals is committed to offering personalized service and expert advice to help you navigate the complexities of insurance.</p>
+            <img class="section-image" src="images/a.jpeg" alt="About Us">
         </section>
 
-        <section id="work">
-            <h2>Work Insurance</h2>
-            <p>Insurance solutions for your business and work-related needs. From protecting your assets to safeguarding your employees, our tailored business insurance plans ensure your operations run smoothly and securely.</p>
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>Have questions? Our team is here to help. Contact us today for a personalized consultation and find out how we can protect what's most important to you. Visit our offices or reach out through our social media channels.</p>
+             <img class="section-image" src="images/c.jpeg" alt="Contact Us">
         </section>
 
-        <section id="travel">
-            <h2>Travel Insurance</h2>
-            <p>Stay covered with our travel insurance options. We make sure you and your family members are covered on your travels in case of an unfortunate event, providing peace of mind wherever your adventures take you.</p>
-            <img class="section-image" src="images/d.jpeg" alt="Travel Insurance">
-        </section>
-
-        <section id="will">
-            <h2>Will and Estate Insurance</h2>
-            <p>Plan for the future with our will and estate insurance services. Ensure your legacy is protected and your wishes are honored, providing financial stability for your heirs and dependents.</p>
-            <img class="section-image" src="images/b.jpeg" alt="Will and Estate Insurance">
-        </section>
-
-        <section id="health">
-            <h2>Health Insurance</h2>
-            <p>Protect your health with our comprehensive health insurance plans. Access to quality healthcare is vital, and our plans offer extensive coverage for medical expenses, ensuring you receive the best care when you need it.</p>
-            <img class="section-image" src="images/c.jpeg" alt="Health Insurance">
-        </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Premier Risk Group. Harare, Zimbabwe.</p>
+        <p>© 2024 Premier Risk Group. Harare, Zimbabwe.</p>
         <p>
             <a href="contacts.html">Contacts</a> |
             <a href="details.html">About Us</a>
@@ -468,6 +532,22 @@
 
         // Initial display
         showSlide(currentSlide);
+
+        // Dropdown menu functionality for smaller screens
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropbtn = document.querySelector('.dropbtn');
+            if (window.innerWidth <= 768) {
+                dropbtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === 'block') {
+                        dropdownContent.style.display = 'none';
+                    } else {
+                        dropdownContent.style.display = 'block';
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
